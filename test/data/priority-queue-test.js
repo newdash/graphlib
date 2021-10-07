@@ -1,4 +1,4 @@
-var _ = require("lodash");
+var _ = require("@newdash/newdash");
 var expect = require("../chai").expect;
 var PriorityQueue = require("../../lib/data/priority-queue");
 

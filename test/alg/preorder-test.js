@@ -1,4 +1,4 @@
-var _ = require("lodash");
+var _ = require("@newdash/newdash");
 var expect = require("../chai").expect;
 var Graph = require("../..").Graph;
 var preorder = require("../..").alg.preorder;

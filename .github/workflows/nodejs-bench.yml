@@ -1,4 +1,4 @@
-name: node-test
+name: node-bench
 
 on:
   push:
@@ -7,9 +7,8 @@ on:
   pull_request:
     branches:
       - "*"
-  # daily check at 01:00 AM
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "0 4 * * *"
 
 jobs:
   build:
@@ -17,8 +16,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
-        os: [ubuntu-latest, macos-latest]
+        node-version: [16.x]
+        os: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v1
@@ -33,16 +32,13 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-bench-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: npm install, build, and test
         run: | 
           npm install
-          npm run lint
           npm run coverage
-          
         env:
           CI: true
 
-      - name: upload coverage
-        uses: codecov/codecov-action@v1
+      - run: npm run bench

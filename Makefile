@@ -53,7 +53,7 @@ bower.json: package.json src/release/make-bower.json.js
 
 lint:
 	@$(JSHINT) $(JSHINT_OPTS) $(filter-out node_modules, $?)
-	@$(ESLINT) $(SRC_FILES) $(TEST_FILES)
+	@$(ESLINT) $(SRC_FILES) $(TEST_FILES) --fix
 
 $(BUILD_DIR)/$(MOD).js: index.js $(SRC_FILES) | unit-test
 	@$(BROWSERIFY) $< > $@ -s graphlib

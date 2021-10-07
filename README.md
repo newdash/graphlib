@@ -8,4 +8,6 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=newdash_graphlib&metric=bugs)](https://sonarcloud.io/dashboard?id=newdash_graphlib)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=newdash_graphlib&metric=sqale_index)](https://sonarcloud.io/dashboard?id=newdash_graphlib)
 
+## [CHANGELOG](./CHANGELOG.md)
+
 ## [LICENSE](./LICENSE)

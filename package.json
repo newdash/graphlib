@@ -14,13 +14,18 @@
     "graph",
     "algorithms"
   ],
+  "scripts": {
+    "test": "mocha --file ./test/**/*-test.js --ignore test/bundle.amd-test.js",
+    "precoverage": "npm run test",
+    "coverage": "nyc report --reporter=lcov"
+  },
   "dependencies": {
     "lodash": "4.17.21"
   },
   "devDependencies": {
     "benchmark": "2.1.4",
     "browserify": "16.5.1",
-    "chai": "4.2.0",
+    "chai": "^4.2.0",
     "eslint": "7.4.0",
     "jshint": "2.11.1",
     "jshint-stylish": "2.2.1",
@@ -32,6 +37,7 @@
     "karma-requirejs": "1.1.0",
     "karma-safari-launcher": "1.0.0",
     "mocha": "8.2.0",
+    "nyc": "^15.1.0",
     "phantomjs-prebuilt": "2.1.16",
     "requirejs": "2.3.6",
     "seedrandom": "3.0.5",

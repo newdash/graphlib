@@ -18,10 +18,9 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: npm test
-        run: |
+        run: | 
           npm install
-          npm test
-          npm shrinkwrap
+          npm run coverage
         env:
           CI: true
 

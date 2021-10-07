@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-var lib = require("./lib");
+const lib = require("./lib");
 
 module.exports = {
   Graph: lib.Graph,

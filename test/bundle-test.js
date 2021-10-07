@@ -2,6 +2,7 @@
 
 // These are smoke tests to make sure the bundles look like they are working
 // correctly.
+const chai = require("chai")
 
 var expect = chai.expect;
 

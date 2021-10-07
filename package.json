@@ -15,7 +15,7 @@
     "algorithms"
   ],
   "scripts": {
-    "test": "mocha --file ./test/**/*-test.js --ignore test/bundle.amd-test.js",
+    "test": "mocha -file ./test/**/*-test.js -file ./test/*-test.js",
     "precoverage": "nyc npm run test",
     "coverage": "nyc report --reporter=lcov"
   },
@@ -36,7 +36,7 @@
     "karma-phantomjs-launcher": "1.0.4",
     "karma-requirejs": "1.1.0",
     "karma-safari-launcher": "1.0.0",
-    "mocha": "8.2.0",
+    "mocha": "9.1.2",
     "nyc": "^15.1.0",
     "phantomjs-prebuilt": "2.1.16",
     "requirejs": "2.3.6",

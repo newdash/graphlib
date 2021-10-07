@@ -6,3 +6,5 @@
 /node_modules
 /src
 /test
+/coverage
+/nyc_output

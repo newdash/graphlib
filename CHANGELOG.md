@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.5](https://github.com/newdash/graphlib/compare/v3.0.4...v3.0.5) (2021-10-07)
+
+
+### Bug Fixes
+
+* add typing ([00f2b10](https://github.com/newdash/graphlib/commit/00f2b106f989cb9b29a75a39e252e0551dc1db42))
+
 ### [3.0.4](https://github.com/newdash/graphlib/compare/v3.0.3...v3.0.4) (2021-10-07)
 
 ### [3.0.3](https://github.com/newdash/graphlib/compare/v3.0.2...v3.0.3) (2021-10-07)

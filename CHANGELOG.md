@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/newdash/graphlib/compare/v3.0.2...v3.0.3) (2021-10-07)
+
+
+### Bug Fixes
+
+* release pipe ([298fa5e](https://github.com/newdash/graphlib/commit/298fa5edf77493cb773822258b116713825478be))
+* sonar ([9b0d9c3](https://github.com/newdash/graphlib/commit/9b0d9c33ad66b2bea98fe2dc5a195f3a2f436096))
+* sonar ([40a8bdc](https://github.com/newdash/graphlib/commit/40a8bdcddc9904ad533260e59191d35639f2bc87))
+* sonar ([67a0338](https://github.com/newdash/graphlib/commit/67a0338a20e0b067af51d92651c23050dad0ceaf))
+
 ### [3.0.2](https://github.com/newdash/graphlib/compare/v2.1.8...v3.0.2) (2021-10-07)
 
 

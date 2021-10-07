@@ -1,6 +1,6 @@
 {
   "name": "@newdash/graphlib",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "A directed and undirected multi-graph library",
   "author": "Chris Pettitt <cpettitt@gmail.com>",
   "maintainers": [

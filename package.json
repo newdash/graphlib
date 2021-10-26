@@ -20,7 +20,7 @@
     "test": "jest",
     "build": "tsc",
     "coverage": "npm test -- --coverage --no-cache",
-    "lint": "eslint lib --fix",
+    "lint": "eslint src --fix",
     "release": "standard-version --no-verify",
     "bench": "node scripts/bench.js"
   },

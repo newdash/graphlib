@@ -1,5 +1,5 @@
 var _ = require("@newdash/newdash");
-var expect = require("../chai").expect;
+
 var Graph = require("../../src").Graph;
 var prim = require("../../src").alg.prim;
 
@@ -8,8 +8,8 @@ describe("alg.prim", function() {
     var source = new Graph();
 
     var g = prim(source, weightFn(source));
-    expect(g.nodeCount()).to.equal(0);
-    expect(g.edgeCount()).to.equal(0);
+    expect(g.nodeCount()).toEqual(0);
+    expect(g.edgeCount()).toEqual(0);
   });
 
   it("returns a single node graph for a graph with a single node", function() {
@@ -17,8 +17,8 @@ describe("alg.prim", function() {
     source.setNode("a");
 
     var g = prim(source, weightFn(source));
-    expect(g.nodes()).to.eql(["a"]);
-    expect(g.edgeCount()).to.equal(0);
+    expect(g.nodes()).toStrictEqual(["a"]);
+    expect(g.edgeCount()).toEqual(0);
   });
 
   it("returns a deterministic result given an optimal solution", function() {
@@ -33,11 +33,11 @@ describe("alg.prim", function() {
     source.setEdge("d", "e",  1);
 
     var g = prim(source, weightFn(source));
-    expect(_.sortBy(g.neighbors("a"))).to.eql(["b"]);
-    expect(_.sortBy(g.neighbors("b"))).to.eql(["a", "c", "d"]);
-    expect(_.sortBy(g.neighbors("c"))).to.eql(["b"]);
-    expect(_.sortBy(g.neighbors("d"))).to.eql(["b", "e"]);
-    expect(_.sortBy(g.neighbors("e"))).to.eql(["d"]);
+    expect(_.sortBy(g.neighbors("a"))).toStrictEqual(["b"]);
+    expect(_.sortBy(g.neighbors("b"))).toStrictEqual(["a", "c", "d"]);
+    expect(_.sortBy(g.neighbors("c"))).toStrictEqual(["b"]);
+    expect(_.sortBy(g.neighbors("d"))).toStrictEqual(["b", "e"]);
+    expect(_.sortBy(g.neighbors("e"))).toStrictEqual(["d"]);
   });
 
   it("throws an Error for unconnected graphs", function() {
@@ -45,7 +45,7 @@ describe("alg.prim", function() {
     source.setNode("a");
     source.setNode("b");
 
-    expect(function() { prim(source, weightFn(source)); }).to.throw();
+    expect(function() { prim(source, weightFn(source)); }).toThrow();
   });
 });
 

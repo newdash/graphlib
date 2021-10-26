@@ -1,30 +1,28 @@
-var expect = require("../chai").expect;
+const Graph = require("../../src").Graph;
+const dijkstra = require("../../src").alg.dijkstra;
 
-var Graph = require("../../src").Graph;
-var dijkstra = require("../../src").alg.dijkstra;
-
-describe("alg.dijkstra", function() {
-  it("assigns distance 0 for the source node", function() {
+describe("alg.dijkstra", function () {
+  it("assigns distance 0 for the source node", function () {
     var g = new Graph();
     g.setNode("source");
-    expect(dijkstra(g, "source")).to.eql({ source: { distance: 0 } });
+    expect(dijkstra(g, "source")).toStrictEqual({ source: { distance: 0 } });
   });
 
-  it("returns Number.POSITIVE_INFINITY for unconnected nodes", function() {
+  it("returns Number.POSITIVE_INFINITY for unconnected nodes", function () {
     var g = new Graph();
     g.setNode("a");
     g.setNode("b");
-    expect(dijkstra(g, "a")).to.eql({
+    expect(dijkstra(g, "a")).toStrictEqual({
       a: { distance: 0 },
       b: { distance: Number.POSITIVE_INFINITY }
     });
   });
 
-  it("returns the distance and path from the source node to other nodes", function() {
+  it("returns the distance and path from the source node to other nodes", function () {
     var g = new Graph();
     g.setPath(["a", "b", "c"]);
     g.setEdge("b", "d");
-    expect(dijkstra(g, "a")).to.eql({
+    expect(dijkstra(g, "a")).toStrictEqual({
       a: { distance: 0 },
       b: { distance: 1, predecessor: "a" },
       c: { distance: 2, predecessor: "b" },
@@ -32,11 +30,11 @@ describe("alg.dijkstra", function() {
     });
   });
 
-  it("works for undirected graphs", function() {
+  it("works for undirected graphs", function () {
     var g = new Graph({ directed: false });
     g.setPath(["a", "b", "c"]);
     g.setEdge("b", "d");
-    expect(dijkstra(g, "a")).to.eql({
+    expect(dijkstra(g, "a")).toStrictEqual({
       a: { distance: 0 },
       b: { distance: 1, predecessor: "a" },
       c: { distance: 2, predecessor: "b" },
@@ -44,14 +42,14 @@ describe("alg.dijkstra", function() {
     });
   });
 
-  it("uses an optionally supplied weight function", function() {
+  it("uses an optionally supplied weight function", function () {
     var g = new Graph();
     g.setEdge("a", "b", 1);
     g.setEdge("a", "c", 2);
     g.setEdge("b", "d", 3);
     g.setEdge("c", "d", 3);
 
-    expect(dijkstra(g, "a", weightFn(g))).to.eql({
+    expect(dijkstra(g, "a", weightFn(g))).toStrictEqual({
       a: { distance: 0 },
       b: { distance: 1, predecessor: "a" },
       c: { distance: 2, predecessor: "a" },
@@ -59,12 +57,12 @@ describe("alg.dijkstra", function() {
     });
   });
 
-  it("uses an optionally supplied edge function", function() {
+  it("uses an optionally supplied edge function", function () {
     var g = new Graph();
     g.setPath(["a", "c", "d"]);
     g.setEdge("b", "c");
 
-    expect(dijkstra(g, "d", undefined, function(e) { return g.inEdges(e); })).to.eql({
+    expect(dijkstra(g, "d", undefined, function (e) { return g.inEdges(e); })).toStrictEqual({
       a: { distance: 2, predecessor: "c" },
       b: { distance: 2, predecessor: "c" },
       c: { distance: 1, predecessor: "d" },
@@ -72,19 +70,19 @@ describe("alg.dijkstra", function() {
     });
   });
 
-  it("throws an Error if it encounters a negative edge weight", function() {
+  it("throws an Error if it encounters a negative edge weight", function () {
     var g = new Graph();
-    g.setEdge("a", "b",  1);
+    g.setEdge("a", "b", 1);
     g.setEdge("a", "c", -2);
-    g.setEdge("b", "d",  3);
-    g.setEdge("c", "d",  3);
+    g.setEdge("b", "d", 3);
+    g.setEdge("c", "d", 3);
 
-    expect(function() { dijkstra(g, "a", weightFn(g)); }).to.throw();
+    expect(function () { dijkstra(g, "a", weightFn(g)); }).toThrow();
   });
 });
 
 function weightFn(g) {
-  return function(e) {
+  return function (e) {
     return g.edge(e);
   };
 }

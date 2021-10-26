@@ -4,10 +4,9 @@ const components = require("../../src").alg.components;
 
 describe("alg.components", function() {
 
-  const expect = require("../chai").expect;
 
   it("returns an empty list for an empty graph", function() {
-    expect(components(new Graph({ directed: false }))).to.be.empty;
+    expect(components(new Graph({ directed: false }))).toHaveLength(0);
   });
 
   it("returns singleton lists for unconnected nodes", function() {
@@ -16,7 +15,7 @@ describe("alg.components", function() {
     g.setNode("b");
 
     const result = _.sortBy(components(g), function(arr) { return _.min(arr); });
-    expect(result).to.eql([["a"], ["b"]]);
+    expect(result).toStrictEqual([["a"], ["b"]]);
   });
 
   it("returns a list of nodes in a component", function() {
@@ -25,7 +24,7 @@ describe("alg.components", function() {
     g.setEdge("b", "c");
 
     const result = _.map(components(g), function(xs) { return _.sortBy(xs); });
-    expect(result).to.eql([["a", "b", "c"]]);
+    expect(result).toStrictEqual([["a", "b", "c"]]);
   });
 
   it("returns nodes connected by a neighbor relationship in a digraph", function() {
@@ -36,6 +35,6 @@ describe("alg.components", function() {
 
     const result = _.sortBy(_.map(components(g),
       function(xs) { return _.sortBy(xs); }), "0");
-    expect(result).to.eql([["a", "b", "c", "d"], ["e", "f"]]);
+    expect(result).toStrictEqual([["a", "b", "c", "d"], ["e", "f"]]);
   });
 });

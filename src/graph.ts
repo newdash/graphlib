@@ -783,7 +783,7 @@ function decrementOrRemoveEntry(map, k) {
   }
 }
 
-function edgeArgsToId(isDirected, v_, w_, name) {
+function edgeArgsToId(isDirected: boolean, v_: any, w_: any, name?: string) {
   let v = "" + v_;
   let w = "" + w_;
   if (!isDirected && v > w) {
@@ -794,7 +794,7 @@ function edgeArgsToId(isDirected, v_, w_, name) {
   return v + EDGE_KEY_DELIM + w + EDGE_KEY_DELIM + (name === undefined ? DEFAULT_EDGE_NAME : name);
 }
 
-function edgeArgsToObj(isDirected, v_, w_, name) {
+function edgeArgsToObj(isDirected: boolean, v_: any, w_: any, name?: string) {
   let v = "" + v_;
   let w = "" + w_;
   if (!isDirected && v > w) {
@@ -809,7 +809,7 @@ function edgeArgsToObj(isDirected, v_, w_, name) {
   return edgeObj;
 }
 
-function edgeObjToId(isDirected, edgeObj) {
+function edgeObjToId(isDirected: boolean, edgeObj: Edge) {
   return edgeArgsToId(isDirected, edgeObj.v, edgeObj.w, edgeObj.name);
 }
 

@@ -1,4 +1,3 @@
-var expect = require("../chai").expect;
 var Graph = require("../../src").Graph;
 var dijkstraAll = require("../../src").alg.dijkstraAll;
 var allShortestPathsTest = require("./utils");
@@ -13,7 +12,7 @@ describe("alg.dijkstraAll", function() {
     g.setEdge("b", "d",  3);
     g.setEdge("c", "d",  3);
 
-    expect(function() { dijkstraAll(g, weight(g)); }).to.throw();
+    expect(function() { dijkstraAll(g, weight(g)); }).toThrow();
   });
 });
 

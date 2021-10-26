@@ -1,6 +1,6 @@
 var expect = require("../chai").expect;
-var Graph = require("../..").Graph;
-var isAcyclic = require("../..").alg.isAcyclic;
+var Graph = require("../../src").Graph;
+var isAcyclic = require("../../src").alg.isAcyclic;
 
 describe("alg.isAcyclic", function() {
   it("returns true if the graph has no cycles", function() {

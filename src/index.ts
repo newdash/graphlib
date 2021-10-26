@@ -1,8 +1,8 @@
-// Includes only the "core" of graphlib
-module.exports = {
-  Graph: require("./graph"),
-  version: require("./version")
-};
+import { Graph } from "./graph";
 
-export { Graph } from "./graph";
 export { version } from "./version";
+export * as json from "./json";
+export * as alg from "./alg";
+
+export { Graph };
+export default Graph;

@@ -37,7 +37,8 @@ jobs:
       - name: npm install, build, and test
         run: | 
           npm install
-          npm run coverage
+          npm run test
+          npm run build
         env:
           CI: true
 

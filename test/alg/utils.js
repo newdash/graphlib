@@ -1,5 +1,5 @@
 var expect = require("../chai").expect;
-var Graph = require("../..").Graph;
+var Graph = require("../../src").Graph;
 
 exports.tests = tests;
 

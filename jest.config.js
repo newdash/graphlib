@@ -8,7 +8,7 @@ module.exports = {
     ".(ts|tsx)": "ts-jest"
   },
   collectCoverageFrom: [
-    "ts/**/*.ts",
+    "src/**/*.ts",
     "!**/node_modules/**"
   ],
   coveragePathIgnorePatterns: [

@@ -1,7 +1,7 @@
 var _ = require("@newdash/newdash");
 var expect = require("../chai").expect;
-var Graph = require("../..").Graph;
-var tarjan = require("../..").alg.tarjan;
+var Graph = require("../../src").Graph;
+var tarjan = require("../../src").alg.tarjan;
 
 describe("alg.tarjan", function() {
   it("returns an empty array for an empty graph", function() {

@@ -11,7 +11,7 @@
     }
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "keywords": [
     "graph",
     "algorithms"
@@ -19,10 +19,9 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "precoverage": "nyc npm run test",
-    "coverage": "nyc report --reporter=lcov",
+    "coverage": "npm test -- --coverage --no-cache",
     "lint": "eslint lib --fix",
-    "release": "standard-version --no-verify && git push --follow-tags origin main",
+    "release": "standard-version --no-verify",
     "bench": "node scripts/bench.js"
   },
   "dependencies": {

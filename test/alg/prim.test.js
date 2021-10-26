@@ -1,7 +1,7 @@
 var _ = require("@newdash/newdash");
 var expect = require("../chai").expect;
-var Graph = require("../..").Graph;
-var prim = require("../..").alg.prim;
+var Graph = require("../../src").Graph;
+var prim = require("../../src").alg.prim;
 
 describe("alg.prim", function() {
   it("returns an empty graph for an empty input", function() {

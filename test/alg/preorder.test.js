@@ -1,7 +1,7 @@
 var _ = require("@newdash/newdash");
 var expect = require("../chai").expect;
-var Graph = require("../..").Graph;
-var preorder = require("../..").alg.preorder;
+var Graph = require("../../src").Graph;
+var preorder = require("../../src").alg.preorder;
 
 describe("alg.preorder", function() {
   it("returns the root for a singleton graph", function() {

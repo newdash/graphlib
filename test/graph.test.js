@@ -1,6 +1,6 @@
 var _ = require("@newdash/newdash");
 var expect = require("./chai").expect;
-var Graph = require("..").Graph;
+var Graph = require("../src").Graph;
 
 describe("Graph", function() {
   var g;

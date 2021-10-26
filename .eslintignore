@@ -1,0 +1,6 @@
+/lib
+/coverage
+/scripts
+/node_modules
+/.github
+/index.js

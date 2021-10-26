@@ -1,3 +1,6 @@
-import { version } from "../package.json";
+const version = "unknown";
+
+
 export { version };
+
 export default version;

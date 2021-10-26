@@ -1,6 +1,6 @@
 var expect = require("../chai").expect;
-var Graph = require("../..").Graph;
-var dijkstraAll = require("../..").alg.dijkstraAll;
+var Graph = require("../../src").Graph;
+var dijkstraAll = require("../../src").alg.dijkstraAll;
 var allShortestPathsTest = require("./utils");
 
 describe("alg.dijkstraAll", function() {

@@ -10,8 +10,8 @@ if (seed) {
   console.log("SEED: %s (%d)", seed, Math.random());
 }
 
-var Graph = require("..").Graph,
-  alg = require("..").alg;
+var Graph = require("../lib").Graph,
+  alg = require("../lib").alg;
 
 var NODE_SIZES = [100],
   EDGE_DENSITY = 0.2,

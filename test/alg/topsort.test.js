@@ -1,7 +1,7 @@
 var expect = require("../chai").expect;
 var _ = require("@newdash/newdash");
-var Graph = require("../..").Graph;
-var topsort = require("../..").alg.topsort;
+var Graph = require("../../src").Graph;
+var topsort = require("../../src").alg.topsort;
 
 describe("alg.topsort", function() {
   it("returns an empty array for an empty graph", function() {

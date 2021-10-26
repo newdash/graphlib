@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 var Benchmark = require("benchmark"),
-    seedrandom = require("seedrandom"),
-    sprintf = require("sprintf").sprintf;
+  seedrandom = require("seedrandom"),
+  sprintf = require("sprintf").sprintf;
 
 var seed = process.env.SEED;
 seedrandom(seed, { global: true });
@@ -11,25 +11,25 @@ if (seed) {
 }
 
 var Graph = require("..").Graph,
-    alg = require("..").alg;
+  alg = require("..").alg;
 
 var NODE_SIZES = [100],
-    EDGE_DENSITY = 0.2,
-    KEY_SIZE = 10;
+  EDGE_DENSITY = 0.2,
+  KEY_SIZE = 10;
 
 function runBenchmark(name, fn) {
   var options = {};
   options.onComplete = function(bench) {
     var target = bench.target,
-        hz = target.hz,
-        stats = target.stats,
-        rme = stats.rme,
-        samples = stats.sample.length,
-        msg = sprintf("    %25s: %13s ops/sec \xb1 %s%% (%3d run(s) sampled)",
-                      target.name,
-                      Benchmark.formatNumber(hz.toFixed(2)),
-                      rme.toFixed(2),
-                      samples);
+      hz = target.hz,
+      stats = target.stats,
+      rme = stats.rme,
+      samples = stats.sample.length,
+      msg = sprintf("    %25s: %13s ops/sec \xb1 %s%% (%3d run(s) sampled)",
+        target.name,
+        Benchmark.formatNumber(hz.toFixed(2)),
+        rme.toFixed(2),
+        samples);
     console.log(msg);
   };
   options.onError = function(bench) {
@@ -46,7 +46,7 @@ function runBenchmark(name, fn) {
 
 function keys(count) {
   var ks = [],
-      k;
+    k;
   for (var i = 0; i < count; ++i) {
     k = "";
     for (var j = 0; j < KEY_SIZE; ++j) {
@@ -59,8 +59,8 @@ function keys(count) {
 
 function buildGraph(numNodes, edgeDensity) {
   var g = new Graph(),
-      numEdges = numNodes * numNodes * edgeDensity,
-      ks = keys(numNodes);
+    numEdges = numNodes * numNodes * edgeDensity,
+    ks = keys(numNodes);
 
   ks.forEach(function(k) { g.setNode(k); });
 
@@ -77,9 +77,9 @@ function buildGraph(numNodes, edgeDensity) {
 
 NODE_SIZES.forEach(function(size) {
   var g = buildGraph(size, EDGE_DENSITY),
-      nodes = g.nodes(),
-      edges = g.edges(),
-      nameSuffix = "(" + size + "," + EDGE_DENSITY + ")";
+    nodes = g.nodes(),
+    edges = g.edges(),
+    nameSuffix = "(" + size + "," + EDGE_DENSITY + ")";
 
   runBenchmark("nodes" + nameSuffix, function() {
     g.nodes();

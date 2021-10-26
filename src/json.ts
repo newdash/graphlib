@@ -1,11 +1,10 @@
+import { Graph } from "./graph";
+import { map } from "@newdash/newdash/map";
+import { each } from "@newdash/newdash/each";
+import { clone } from "@newdash/newdash/clone";
 
-const Graph = require("./graph");
-const { map } = require("@newdash/newdash/map");
-const { each } = require("@newdash/newdash/each");
-const { clone } = require("@newdash/newdash/clone");
-
-function write(g) {
-  var json = {
+export function write(g: Graph): Object {
+  const json: any = {
     options: {
       directed: g.isDirected(),
       multigraph: g.isMultigraph(),
@@ -20,11 +19,11 @@ function write(g) {
   return json;
 }
 
-function writeNodes(g) {
-  return map(g.nodes(), function (v) {
-    var nodeValue = g.node(v);
-    var parent = g.parent(v);
-    var node = { v: v };
+function writeNodes(g: Graph) {
+  return map(g.nodes(), (v) => {
+    const nodeValue = g.node(v);
+    const parent = g.parent(v);
+    const node: any = { v: v };
     if (nodeValue !== undefined) {
       node.value = nodeValue;
     }
@@ -35,10 +34,10 @@ function writeNodes(g) {
   });
 }
 
-function writeEdges(g) {
-  return map(g.edges(), function (e) {
-    var edgeValue = g.edge(e);
-    var edge = { v: e.v, w: e.w };
+function writeEdges(g: Graph) {
+  return map(g.edges(), (e: any) => {
+    const edgeValue = g.edge(e);
+    const edge: any = { v: e.v, w: e.w };
     if (e.name !== undefined) {
       edge.name = e.name;
     }
@@ -49,21 +48,16 @@ function writeEdges(g) {
   });
 }
 
-function read(json) {
-  var g = new Graph(json.options).setGraph(json.value);
-  each(json.nodes, function (entry) {
+export function read(json: any): Graph {
+  const g = new Graph(json.options).setGraph(json.value);
+  each(json.nodes, function (entry: any) {
     g.setNode(entry.v, entry.value);
     if (entry.parent) {
       g.setParent(entry.v, entry.parent);
     }
   });
-  each(json.edges, function (entry) {
+  each(json.edges, function (entry: any) {
     g.setEdge({ v: entry.v, w: entry.w, name: entry.name }, entry.value);
   });
   return g;
 }
-
-module.exports = {
-  write: write,
-  read: read
-};

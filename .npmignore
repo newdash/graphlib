@@ -8,3 +8,9 @@
 /test
 /coverage
 /nyc_output
+/.github
+/scripts
+/*.tgz
+/*eslint*
+/*rc*
+/jest.config.js

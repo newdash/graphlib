@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/newdash/graphlib/compare/v3.0.5...v3.1.0) (2021-10-26)
+
+
+### Features
+
+* ts ([1c1677f](https://github.com/newdash/graphlib/commit/1c1677f2ec61be7d27ecff014c853fa5bfa9d024))
+
+
+### Bug Fixes
+
+* lint ([bdcce98](https://github.com/newdash/graphlib/commit/bdcce98d651abf0b4d9a35cd44c1fa48c6f45813))
+
 ### [3.0.5](https://github.com/newdash/graphlib/compare/v3.0.4...v3.0.5) (2021-10-07)
 
 

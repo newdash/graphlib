@@ -21,7 +21,7 @@
     "build": "tsc",
     "coverage": "npm test -- --coverage --no-cache",
     "lint": "eslint src --fix",
-    "release": "standard-version --no-verify",
+    "release": "npx standard-version --no-verify",
     "bench": "node scripts/bench.js"
   },
   "dependencies": {
@@ -38,7 +38,6 @@
     "ts-jest": "^27.1.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.3",
-    "standard-version": "^9.3.2",
     "phantomjs-prebuilt": "2.1.16",
     "requirejs": "2.3.6",
     "prettier": "^2.5.1",

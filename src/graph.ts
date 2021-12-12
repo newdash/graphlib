@@ -29,22 +29,39 @@ const EDGE_KEY_DELIM = "\x01";
 
 export class Graph {
   private _isDirected: boolean;
+
   private _isMultigraph: boolean;
+
   private _isCompound: boolean;
+
   private _label: any;
+
   private _defaultNodeLabelFn: (value: any) => any;
+
   private _defaultEdgeLabelFn: (value: any, w?: any, label?: any) => any;
+
   private _nodes: {};
+
   private _parent: {};
+
   private _children: {};
+
   private _in: {};
+
   private _preds: {};
+
   private _out: {};
+
   private _sucs: {};
+
   private _edgeObjs: {};
+
   private _edgeLabels: {};
+
   private _nodeCount: number;
+
   private _edgeCount: number;
+
   constructor(opts?: GraphOptions) {
     this._isDirected = has(opts, "directed") ? opts.directed : true;
     this._isMultigraph = has(opts, "multigraph") ? opts.multigraph : false;
@@ -115,6 +132,7 @@ export class Graph {
   isMultigraph() {
     return this._isMultigraph;
   }
+
   /**
    * Whether graph was created with 'compound' flag set to true or not.
    *
@@ -123,6 +141,7 @@ export class Graph {
   isCompound() {
     return this._isCompound;
   }
+
   /**
    * Sets the label of the graph.
    *
@@ -133,6 +152,7 @@ export class Graph {
     this._label = label;
     return this;
   }
+
   /**
    * Gets the graph label.
    *
@@ -159,6 +179,7 @@ export class Graph {
     this._defaultNodeLabelFn = newDefault;
     return this;
   }
+
   /**
    * Gets the number of nodes in the graph.
    * Complexity: O(1).
@@ -168,6 +189,7 @@ export class Graph {
   nodeCount() {
     return this._nodeCount;
   }
+
   /**
    * Gets all nodes of the graph. Note, the in case of compound graph subnodes are
    * not included in list.
@@ -178,6 +200,7 @@ export class Graph {
   nodes() {
     return keys(this._nodes);
   }
+
   /**
    * Gets list of nodes without in-edges.
    * Complexity: O(|V|).
@@ -190,6 +213,7 @@ export class Graph {
       return isEmpty(self._in[v]);
     });
   }
+
   /**
    * Gets list of nodes without out-edges.
    * Complexity: O(|V|).
@@ -202,6 +226,7 @@ export class Graph {
       return isEmpty(self._out[v]);
     });
   }
+
   /**
    * Invokes setNode method for each node in names list.
    * Complexity: O(|names|).
@@ -211,6 +236,7 @@ export class Graph {
    * @returns the graph, allowing this to be chained with other functions.
    */
   setNodes(names: string[], label?: any): Graph;
+
   setNodes(...args: any[]) {
     const [names, label] = args;
     each(names, (v: string) => {
@@ -222,6 +248,7 @@ export class Graph {
     });
     return this;
   }
+
   /**
    * Creates or updates the value for the node v in the graph. If label is supplied
    * it is set as the value for the node. If label is not supplied and the node was
@@ -253,6 +280,7 @@ export class Graph {
     ++this._nodeCount;
     return this;
   }
+
   /**
    * Gets the label of node with specified name.
    * Complexity: O(|V|).
@@ -273,6 +301,7 @@ export class Graph {
   hasNode(name: string): boolean {
     return has(this._nodes, name);
   }
+
   /**
    * Remove the node with the name from the graph or do nothing if the node is not in
    * the graph. If the node was removed this function also removes any incident
@@ -304,6 +333,7 @@ export class Graph {
     }
     return this;
   }
+
   /**
    * Sets node p as a parent for node v if it is defined, or removes the
    * parent for v if p is undefined. Method throws an exception in case of
@@ -383,6 +413,7 @@ export class Graph {
       return [];
     }
   }
+
   /**
    * Return all nodes that are predecessors of the specified node or undefined if node v is not in
    * the graph. Behavior is undefined for undirected graphs - use neighbors instead.
@@ -397,6 +428,7 @@ export class Graph {
       return keys(predsV);
     }
   }
+
   /**
    * Return all nodes that are successors of the specified node or undefined if node v is not in
    * the graph. Behavior is undefined for undirected graphs - use neighbors instead.
@@ -411,6 +443,7 @@ export class Graph {
       return keys(sucsV);
     }
   }
+
   /**
    * Return all nodes that are predecessors or successors of the specified node or undefined if
    * node v is not in the graph.
@@ -425,6 +458,7 @@ export class Graph {
       return union(preds, this.successors(v) as string[]);
     }
   }
+
   /**
    *
    * @argument v - node identifier.
@@ -500,12 +534,15 @@ export class Graph {
     this._defaultEdgeLabelFn = newDefault;
     return this;
   }
+
   edgeCount() {
     return this._edgeCount;
   }
+
   edges() {
     return values(this._edgeObjs);
   }
+
   /**
    * Establish an edges path over the nodes in nodes list. If some edge is already
    * exists, it will update its label, otherwise it will create an edge between pair
@@ -517,6 +554,7 @@ export class Graph {
    * @returns the graph, allowing this to be chained with other functions.
    */
   setPath(nodes: string[], label?: any): Graph;
+
   setPath(...args: any[]) {
     const [vs, value] = args;
     reduce(vs, (v: string, w: any) => {
@@ -529,6 +567,7 @@ export class Graph {
     });
     return this;
   }
+
   /**
    * Creates or updates the label for the edge (v, w) with the optionally supplied
    * name. If label is supplied it is set as the value for the edge. If label is not
@@ -543,6 +582,7 @@ export class Graph {
    * @returns the graph, allowing this to be chained with other functions.
    */
   setEdge(v: string, w: string, label?: any, name?: string): Graph;
+
   /**
    * Creates or updates the label for the specified edge. If label is supplied it is
    * set as the value for the edge. If label is not supplied and the edge was created
@@ -555,6 +595,7 @@ export class Graph {
    * @returns the graph, allowing this to be chained with other functions.
    */
   setEdge(edge: Edge, label?: any): Graph;
+
   setEdge(...args: any[]) {
     let v, w, name, value;
     let valueSpecified = false;
@@ -617,6 +658,7 @@ export class Graph {
     this._edgeCount++;
     return this;
   }
+
   /**
    * Gets edges of the graph. In case of compound graph subgraphs are not considered.
    * Complexity: O(|E|).
@@ -633,6 +675,7 @@ export class Graph {
    * @returns value associated with specified edge.
    */
   edge(v: string, w: string, name?: string): any;
+
   /**
    * Gets the label for the specified edge.
    * Complexity: O(1).
@@ -641,6 +684,7 @@ export class Graph {
    * @returns value associated with specified edge.
    */
   edge(e: Edge): any;
+
   edge(...args: any[]) {
     const [v, w, name] = args;
     const e = args.length === 1 ? edgeObjToId(this._isDirected, args[0]) : edgeArgsToId(this._isDirected, v, w, name);
@@ -657,6 +701,7 @@ export class Graph {
    * @returns whether the graph contains the specified edge or not.
    */
   hasEdge(v: string, w: string, name?: string): boolean;
+
   /**
    * Detects whether the graph contains specified edge or not. No subgraphs are considered.
    * Complexity: O(1).
@@ -665,12 +710,14 @@ export class Graph {
    * @returns whether the graph contains the specified edge or not.
    */
   hasEdge(edge: Edge): boolean;
+
   hasEdge(...args: any[]) {
     const [v, w, name] = args;
     const e =
       arguments.length === 1 ? edgeObjToId(this._isDirected, args[0]) : edgeArgsToId(this._isDirected, v, w, name);
     return has(this._edgeLabels, e);
   }
+
   /**
    * Removes the specified edge from the graph. No subgraphs are considered.
    * Complexity: O(1).
@@ -690,6 +737,7 @@ export class Graph {
    * @returns the graph, allowing this to be chained with other functions.
    */
   removeEdge(v: string, w: string, name?: string): Graph;
+
   removeEdge(...args: any[]) {
     // eslint-disable-next-line prefer-const
     let [v, w, name] = args;
@@ -709,6 +757,7 @@ export class Graph {
     }
     return this;
   }
+
   /**
    * Return all edges that point to the node v. Optionally filters those edges down to just those
    * coming from node u. Behavior is undefined for undirected graphs - use nodeEdges instead.
@@ -730,6 +779,7 @@ export class Graph {
       });
     }
   }
+
   /**
    * Return all edges that are pointed at by node v. Optionally filters those edges down to just
    * those point to w. Behavior is undefined for undirected graphs - use nodeEdges instead.

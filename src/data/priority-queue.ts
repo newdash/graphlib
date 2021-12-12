@@ -9,17 +9,21 @@ const { has } = require("@newdash/newdash/has");
  */
 export class PriorityQueue {
   private _arr: any[];
+
   private _keyIndices: {};
+
   constructor() {
     this._arr = [];
     this._keyIndices = {};
   }
+
   /**
    * Returns the number of elements in the queue. Takes `O(1)` time.
    */
   size() {
     return this._arr.length;
   }
+
   /**
    * Returns the keys that are in the queue. Takes `O(n)` time.
    */
@@ -28,12 +32,14 @@ export class PriorityQueue {
       return x.key;
     });
   }
+
   /**
    * Returns `true` if **key** is in the queue and `false` if not.
    */
   has(key) {
     return has(this._keyIndices, key);
   }
+
   /**
    * Returns the priority for **key**. If **key** is not present in the queue
    * then this function returns `undefined`. Takes `O(1)` time.
@@ -46,6 +52,7 @@ export class PriorityQueue {
       return this._arr[index].priority;
     }
   }
+
   /**
    * Returns the key for the minimum element in this queue. If the queue is
    * empty this function throws an Error. Takes `O(1)` time.
@@ -56,6 +63,7 @@ export class PriorityQueue {
     }
     return this._arr[0].key;
   }
+
   /**
    * Inserts a new key into the priority queue. If the key already exists in
    * the queue this function returns `false`; otherwise it will return `true`.
@@ -77,6 +85,7 @@ export class PriorityQueue {
     }
     return false;
   }
+
   /**
    * Removes and returns the smallest key in the queue. Takes `O(log n)` time.
    */
@@ -87,6 +96,7 @@ export class PriorityQueue {
     this._heapify(0);
     return min.key;
   }
+
   /**
    * Decreases the priority for **key** to **priority**. If the new priority is
    * greater than the previous priority, this function will throw an Error.
@@ -110,6 +120,7 @@ export class PriorityQueue {
     this._arr[index].priority = priority;
     this._decrease(index);
   }
+
   _heapify(i) {
     const arr = this._arr;
     const l = 2 * i;
@@ -126,6 +137,7 @@ export class PriorityQueue {
       }
     }
   }
+
   _decrease(index) {
     const arr = this._arr;
     const priority = arr[index].priority;
@@ -139,6 +151,7 @@ export class PriorityQueue {
       index = parent;
     }
   }
+
   _swap(i, j) {
     const arr = this._arr;
     const keyIndices = this._keyIndices;

@@ -2,15 +2,14 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint",
-    "prettier"
+    "@typescript-eslint"
   ],
   "env": {
     "node": true,
     "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 2021,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "ecmaFeatures": {
       "impliedStrict": true,
@@ -18,8 +17,7 @@
     }
   },
   "extends": [
-    "plugin:@typescript-eslint/eslint-recommended",
-    "prettier"
+    "plugin:@typescript-eslint/eslint-recommended"
   ],
   "rules": {
     "max-len": [

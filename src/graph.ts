@@ -25,7 +25,7 @@ const EDGE_KEY_DELIM = "\x01";
 //  * Internally we use an "edgeId", a stringified form of the edgeObj, to
 //    reference edges. This is because we need a performant way to look these
 //    edges up and, object properties, which have string keys, are the closest
-//    we're going to get to a performant hashtable in JavaScript.
+//    we're going to get to a performant hash-table in JavaScript.
 
 export class Graph {
   private _isDirected: boolean;

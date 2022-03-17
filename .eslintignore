@@ -4,3 +4,5 @@
 /node_modules
 /.github
 /index.js
+jest.config.js
+test

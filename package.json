@@ -10,6 +10,9 @@
       "email": "theo.sun@outlook.com"
     }
   ],
+  "engines": {
+    "node": ">=14"
+  },
   "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
@@ -25,22 +28,21 @@
     "bench": "node scripts/bench.js"
   },
   "dependencies": {
-    "@newdash/newdash": "^5.21.2"
+    "@newdash/newdash": "^5.21.4"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^12.1.4",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.27",
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.48",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
     "benchmark": "2.1.4",
-    "eslint": "^8.13.0",
+    "eslint": "^8.21.0",
     "jest": "^27.5.1",
     "seedrandom": "3.0.5",
     "sprintf": "0.1.5",
-    "ts-jest": "^27.1.4",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.3"
+    "ts-jest": "^27.1.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   },
   "repository": {
     "type": "git",
